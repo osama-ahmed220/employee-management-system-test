@@ -10,10 +10,13 @@ const FormEmployeeCard = ({ isEdit }: FormEmployeeCardProps) => {
     const { firstName, lastName, designation, summary, email, phoneNumber, photoDisplayUrl, photo } = useWatch<EmployeeFormSchemaObjectType>();
 
     const displayPhoto = useMemo(() => {
-        if (isEdit) {
+        if (photoDisplayUrl) {
+            return photoDisplayUrl;
+        }
+        if (photo) {
             return photo;
         }
-        return photoDisplayUrl;
+        return undefined;
     }, [photoDisplayUrl, photo, isEdit]);
 
     const emailFallback = useMemo(() => {

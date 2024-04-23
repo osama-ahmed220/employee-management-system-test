@@ -45,28 +45,28 @@ export const designationData: FormInputSelectDataType[] = [
     },
 ];
 
-const designationDataWithoutCEO = designationData.filter((d) => d.value !== DesignationEnum.Ceo);
+const ceoData: EmployeeI = {
+    "id": "6b09596e-c2ff-4242-a53c-dae86505e9fb",
+    "firstName": "Samson",
+    "lastName": "Kris",
+    "email": "Russel.Denesik89@hotmail.com",
+    "phoneNumber": "1-642-957-0744 x63552",
+    "designation": DesignationEnum.Ceo,
+    "supervisor": "",
+    "summary": "Blanditiis ut quas tempora est omnis et. Ipsam et quos et quae repellendus nesciunt et enim quas. Eum sapiente omnis iure quidem voluptas et sunt adipisci.",
+    "photo": "https://cdn.fakercloud.com/avatars/we_social_128.jpg",
+    "createdAt": new Date("2023-07-07T04:33:52.309Z"),
+    "updatedAt": new Date("2024-04-21T21:46:55.192Z")
+};
 
-const tempMockEmployeeData: EmployeeI[] = [
-    {
-        "id": "6b09596e-c2ff-4242-a53c-dae86505e9fb",
-        "firstName": "Samson",
-        "lastName": "Kris",
-        "email": "Russel.Denesik89@hotmail.com",
-        "phoneNumber": "1-642-957-0744 x63552",
-        "designation": "ceo",
-        "summary": "Blanditiis ut quas tempora est omnis et. Ipsam et quos et quae repellendus nesciunt et enim quas. Eum sapiente omnis iure quidem voluptas et sunt adipisci.",
-        "photo": "https://cdn.fakercloud.com/avatars/we_social_128.jpg",
-        "createdAt": new Date("2023-07-07T04:33:52.309Z"),
-        "updatedAt": new Date("2024-04-21T21:46:55.192Z")
-    },
+const managementHeadData: EmployeeI[] = [
     {
         "id": "e10cfb88-c6dc-43fe-aeac-5f78c269f908",
         "firstName": "Ayla",
         "lastName": "Schuster",
         "email": "Wade23@gmail.com",
         "phoneNumber": "334-430-8722",
-        "designation": "Violette",
+        "designation": DesignationEnum.ManagementHead,
         "summary": "Et quisquam qui. Est neque itaque ipsum quod non est. Architecto nesciunt doloremque occaecati itaque ea impedit ut ipsam libero. Sed et facere. Dicta omnis est iure et perferendis ipsum dolorum sequi. Sed autem ab sit ut exercitationem voluptatibus ea.",
         "photo": "https://cdn.fakercloud.com/avatars/stephcoue_128.jpg",
         "createdAt": new Date("2023-07-02T13:32:17.068Z"),
@@ -78,31 +78,47 @@ const tempMockEmployeeData: EmployeeI[] = [
         "lastName": "Robel",
         "email": "Gabriel11@hotmail.com",
         "phoneNumber": "1-687-276-4577",
-        "designation": "Elmer",
+        "designation": DesignationEnum.ManagementHead,
         "summary": "Ipsum in voluptas illum et. Placeat doloribus voluptatem reiciendis fugiat nostrum. Nam voluptas assumenda veniam vero. Perspiciatis totam accusantium officiis ut quidem omnis.",
         "photo": "https://cdn.fakercloud.com/avatars/panchajanyag_128.jpg",
         "createdAt": new Date("2023-08-16T22:17:03.610Z"),
         "updatedAt": new Date("2024-04-22T05:38:20.213Z")
     },
+].map((managementHead) => {
+    return {
+        ...managementHead,
+        supervisor: ceoData.id
+    }
+});
+
+const projectManagerData: EmployeeI[] = [
     {
         "id": "2932f30e-cac4-4899-bde5-84f0518fbc02",
         "firstName": "Myra",
         "lastName": "Dooley",
         "email": "Leann.Hammes24@hotmail.com",
         "phoneNumber": "615 359 9631",
-        "designation": "Tamara",
+        "designation": DesignationEnum.ProjectManager,
         "summary": "Architecto voluptas dolores omnis sit aliquam culpa voluptas aut. Voluptatem est dolores. Ut nulla qui occaecati facilis.",
         "photo": "https://cdn.fakercloud.com/avatars/mattlat_128.jpg",
         "createdAt": new Date("2024-01-25T19:45:16.934Z"),
         "updatedAt": new Date("2024-04-22T04:47:48.693Z")
-    },
+    }
+].map((projectManager) => {
+    return {
+        ...projectManager,
+        supervisor: managementHeadData[randomInteger(0, managementHeadData.length - 1)].id
+    }
+});
+
+const teamLeadData: EmployeeI[] = [
     {
         "id": "99eeba6d-a0b9-4e72-9a62-a3a2c27c702a",
         "firstName": "Madison",
         "lastName": "Kemmer",
         "email": "Ali.Wintheiser78@hotmail.com",
         "phoneNumber": "358-779-9315",
-        "designation": "Sarah",
+        "designation": DesignationEnum.TeamLead,
         "summary": "Quia facilis nihil debitis blanditiis reprehenderit. Soluta optio at consectetur excepturi sint exercitationem sed. Similique aperiam assumenda omnis. Fuga et asperiores voluptates labore aspernatur quo.",
         "photo": "https://cdn.fakercloud.com/avatars/oktayelipek_128.jpg",
         "createdAt": new Date("2024-04-05T19:32:29.179Z"),
@@ -114,19 +130,27 @@ const tempMockEmployeeData: EmployeeI[] = [
         "lastName": "Swift",
         "email": "Kiana_Kunze@gmail.com",
         "phoneNumber": "855-947-2404",
-        "designation": "Eddie",
+        "designation": DesignationEnum.TeamLead,
         "summary": "Fuga animi quis esse non minima aut incidunt. Autem eveniet tempora qui nihil et id qui sapiente. Deserunt aperiam placeat incidunt nam recusandae voluptatem qui aut. Perspiciatis odio reiciendis sint libero. Hic placeat nisi incidunt natus molestiae sit suscipit omnis voluptatibus.",
         "photo": "https://cdn.fakercloud.com/avatars/mylesb_128.jpg",
         "createdAt": new Date("2023-11-02T16:42:52.668Z"),
         "updatedAt": new Date("2024-04-22T01:02:27.180Z")
     },
+].map((teamLead) => {
+    return {
+        ...teamLead,
+        supervisor: projectManagerData[randomInteger(0, projectManagerData.length - 1)].id
+    }
+});
+
+const developerData: EmployeeI[] = [
     {
         "id": "6f12a8cb-6000-4758-af24-564a455a558e",
         "firstName": "Taryn",
         "lastName": "Veum",
         "email": "Margarett.Berge86@yahoo.com",
         "phoneNumber": "706 981 8829",
-        "designation": "Mylene",
+        "designation": DesignationEnum.Developer,
         "summary": "Laborum quam cum est dolor facere accusantium et harum quasi. Assumenda qui accusamus eligendi nihil consectetur iure totam veniam. Doloribus repellendus voluptas aut est rerum. Fuga autem iste autem expedita ipsum sit sed.",
         "photo": "https://cdn.fakercloud.com/avatars/vladimirdevic_128.jpg",
         "createdAt": new Date("2023-04-29T17:47:54.858Z"),
@@ -138,7 +162,7 @@ const tempMockEmployeeData: EmployeeI[] = [
         "lastName": "Howe",
         "email": "Dana_Denesik@hotmail.com",
         "phoneNumber": "913-222-0948",
-        "designation": "Emelie",
+        "designation": DesignationEnum.Developer,
         "summary": "Ipsam tempore rem nisi quis libero debitis aliquam. Sed consequatur et molestiae porro. Non voluptate hic quisquam repellat illum rerum. Architecto dolor unde sit. Natus aliquid dicta. Odit molestiae at voluptatum optio.",
         "photo": "https://cdn.fakercloud.com/avatars/themrdave_128.jpg",
         "createdAt": new Date("2024-04-21T21:18:00.045Z"),
@@ -150,17 +174,28 @@ const tempMockEmployeeData: EmployeeI[] = [
         "lastName": "White",
         "email": "Esther71@hotmail.com",
         "phoneNumber": "1-856-843-4299",
-        "designation": "Dewayne",
+        "designation": DesignationEnum.Developer,
         "summary": "Vel facere aspernatur corporis velit. Ut delectus nulla quo culpa ut qui cum enim molestiae. Ea maiores quia enim dolor. Ut atque aspernatur beatae veniam corrupti aut debitis dolorem laborum.",
         "photo": "https://cdn.fakercloud.com/avatars/joshuaraichur_128.jpg",
         "createdAt": new Date("2023-06-21T15:00:25.331Z"),
         "updatedAt": new Date("2024-04-21T21:35:36.101Z")
     }
+].map((dev) => {
+    return {
+        ...dev,
+        supervisor: teamLeadData[randomInteger(0, teamLeadData.length - 1)].id
+    }
+});
+
+const tempMockEmployeeData: EmployeeI[] = [
+    ceoData,
+    ...managementHeadData,
+    ...projectManagerData,
+    ...teamLeadData,
+    ...developerData,
 ].map((data) => {
     return {
         ...data,
-        designation: data.designation === DesignationEnum.Ceo ? data.designation : designationDataWithoutCEO[randomInteger(0, designationDataWithoutCEO.length - 1)].value,
-        supervisor: '',
         photo: `https://randomuser.me/api/portraits/men/${randomInteger(0, 99)}.jpg`,
     };
 });
