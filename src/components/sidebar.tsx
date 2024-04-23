@@ -12,6 +12,7 @@ import { Separator } from './ui/separator';
 interface EmployeesMenuI {
     id: number;
     title: string;
+    shortTitle: string;
     icon: ComponentClass<{ className: string }>;
     link: string;
 }
@@ -19,19 +20,22 @@ interface EmployeesMenuI {
 export const employeesMenus: EmployeesMenuI[] = [
     {
         id: 1,
-        title: 'Add Emplyee',
+        title: 'Add Employee',
+        shortTitle: 'Add',
         icon: AddUserIcon,
         link: '/employees/add'
     },
     {
         id: 2,
         title: 'Employee List',
+        shortTitle: 'List',
         icon: EmployeeListIcon,
         link: '/employees'
     },
     {
         id: 3,
         title: 'Employee Hierarchy',
+        shortTitle: 'Hierarchy',
         icon: HierarcgyStructureIcon,
         link: '/employees/hierarchy'
     },

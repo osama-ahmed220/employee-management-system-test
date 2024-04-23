@@ -36,13 +36,13 @@ const EmployeesPage = () => {
         <>
             <div className="flex items-center justify-between">
                 <h3>All Employees</h3>
-                <div className="flex items-center space-x-4">
-                    <Button color="muted10" size="lg" asChild>
+                <div className="flex items-center space-x-1">
+                    <Button color="muted10" size="sm" asChild>
                         <Navigate href="/employees/hierarchy">
                             View Hierarchy
                         </Navigate>
                     </Button>
-                    <Button color="muted10" size="lg" asChild>
+                    <Button color="muted10" size="sm" asChild>
                         <Navigate href="/employees/add">
                             Add an Employee
                         </Navigate>
