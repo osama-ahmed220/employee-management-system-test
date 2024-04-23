@@ -5,7 +5,7 @@ import MoonIcon from '../../public/icons/moon-02.svg';
 import SunIcon from '../../public/icons/sun.svg';
 import { Button } from "./ui/button";
 
-const ToggleTheme = () => {
+const ToggleTheme = ({ onlyIcons = false }: { onlyIcons?: boolean }) => {
     const { setTheme, theme } = useTheme();
     const isDarkTheme = theme === 'dark';
 
@@ -20,7 +20,9 @@ const ToggleTheme = () => {
                     onClick={() => setTheme('dark')}
                 >
                     <MoonIcon className="w-4 h-4" />
-                    <span className='ml-2'>Dark</span>
+                    {!onlyIcons &&
+                        <span className='ml-2'>Dark</span>
+                    }
                 </Button>
                 <Button
                     key='light'
@@ -30,7 +32,9 @@ const ToggleTheme = () => {
                     onClick={() => setTheme('light')}
                 >
                     <SunIcon className="w-4 h-4 fill-white" />
-                    <span className='ml-2'>Light</span>
+                    {!onlyIcons &&
+                        <span className='ml-2'>Light</span>
+                    }
                 </Button>
             </div>
         </>

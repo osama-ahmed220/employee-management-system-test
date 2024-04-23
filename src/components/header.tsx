@@ -1,8 +1,7 @@
 import { useAppStoreIsDesktop } from '@/stores';
-import SearchIcon from '../../public/icons/searchIcon.svg';
 import Logo from './logo';
 import { Navigate } from './navigate';
-import { Button } from './ui/button';
+import ToggleTheme from './toggle-theme';
 
 const Header = () => {
 
@@ -17,9 +16,9 @@ const Header = () => {
                             <Logo />
                         </Navigate>
                     )}
-                    <Button variant="icon">
-                        <SearchIcon />
-                    </Button>
+                    <div className="w-40">
+                        <ToggleTheme onlyIcons />
+                    </div>
                 </div>
             </header>
         </>
