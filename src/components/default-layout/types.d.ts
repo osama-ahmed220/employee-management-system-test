@@ -1,0 +1,2 @@
+
+type DefaultLayoutProps = React.PropsWithChildren;

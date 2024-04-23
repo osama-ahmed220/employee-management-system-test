@@ -1,0 +1,4 @@
+
+type FormEmployeeCardProps = {
+    isEdit?: boolean;
+};

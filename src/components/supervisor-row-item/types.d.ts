@@ -1,0 +1,4 @@
+
+type SupervisorRowItemProps = {
+    id: string;
+};
